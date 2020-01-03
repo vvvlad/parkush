@@ -1,2 +1,2 @@
-# פרקוש
-parkush android app
+# פַּארְקוּש
+פַּארְקוּש android app
