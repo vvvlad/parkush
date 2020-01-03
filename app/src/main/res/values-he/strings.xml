@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">פַּארְקוּש</string>
+    <string name="title_activity_maps">פַּארְקוּש</string>
+
+    <string name="title_activity_main">פַּארְקוּש</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="action_about">על פַּארְקוּש</string>
+    <string name="aboutText">
+        <![CDATA[
+    <html dir=\"rtl\" lang=\"\">
+    <body style="background-color:azure;">
+    <br/>
+     <h1 style="text-align: center;">מה היא פַּארְקוּש?</h1>
+<p>פַּארְקוּש היא אפליקציה שעוזרת לך ולך למצוא גני שעשועים ופארקים חדשים עבור ילדיכם.</p>
+<p>המידע שמוצג כאן נאסף ממקורות ציבוריים ולכן ייתכנו טעויות או אי דיוקים, אך עם הזמן המידע יתעדכן. כמו כן, בעתיד גם יהיה ניתן ללדווח על גני שעושועים חדשים או לעדכן את הקיימים.</p>
+<p>השימוש באפליקציה על אחראיותכם.</p>
+<h4>תודות:</h4>
+<p>תודה לאשתי שתמכה בי בזמן שהשקעתי באפליקציה וגם על תרומתה לשם האפליקציה.</p>
+<br/>
+<div>Icons made by <a title="Freepik">Freepik</a> from <a title="Flaticon" href="https://www.flaticon.com/">www.flaticon.com</a></div>
+</body>
+</html>
+ ]]>
+    </string>
+
+
+</resources>
