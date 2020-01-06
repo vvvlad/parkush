@@ -197,6 +197,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback , OnMarkerClickList
             startActivity(intent)
             return true
         }
+        if(item.itemId==R.id.action_share){
+            val intent = Intent(this, ShareLocation::class.java)
+            startActivity(intent)
+            return true
+        }
         return super.onOptionsItemSelected(item)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

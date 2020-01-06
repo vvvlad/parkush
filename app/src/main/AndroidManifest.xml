@@ -17,11 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AboutActivity">
-
-        </activity>
-        <activity
-            android:name=".MapsActivity">
+        <activity android:name=".ShareLocation"/>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".MapsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,16 +39,14 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-
-
-        <!--Article that explains key storage strategy-->
-        <!--https://medium.com/@takeoffandroid/securing-api-key-in-android-without-pushing-to-remote-repository-git-4237db104d91-->
+        <!-- Article that explains key storage strategy -->
+        <!-- https://medium.com/@takeoffandroid/securing-api-key-in-android-without-pushing-to-remote-repository-git-4237db104d91 -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${GEO_API_KEY}" />
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="${ADS_APPLICATION_ID}"/>
+            android:value="${ADS_APPLICATION_ID}" />
     </application>
 
 </manifest>

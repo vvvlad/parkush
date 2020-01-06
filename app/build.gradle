@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        manifestPlaceholders = [ GEO_API_KEY:getGeoApiKey(), ADS_APPLICATION_ID:getAdsKey()]
+        manifestPlaceholders = [GEO_API_KEY: getGeoApiKey(), ADS_APPLICATION_ID: getAdsKey()]
     }
     buildTypes {
         release {
@@ -29,17 +29,17 @@ android {
     }
 }
 
-static def getSecretProperty(String propName){
+static def getSecretProperty(String propName) {
     def Properties props = new Properties()
     props.load(new FileInputStream(new File('secrets.properties')))
     return props[propName]
 }
 
-static def getGeoApiKey(){
+static def getGeoApiKey() {
     return getSecretProperty('GEO_API_KEY')
 }
 
-static def getAdsKey(){
+static def getAdsKey() {
     return getSecretProperty('ADS_APPLICATION_ID')
 }
 

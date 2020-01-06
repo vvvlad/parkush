@@ -8,9 +8,16 @@
 <!--        android:title="@string/action_settings"-->
 <!--        app:showAsAction="never" />-->
     <item
+        android:id="@+id/action_share"
+        android:icon="@mipmap/ic_launcher"
+        android:orderInCategory="100"
+        android:title="@string/action_share"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_about"
         android:icon="@mipmap/ic_launcher"
         android:orderInCategory="200"
         android:title="@string/action_about"
         app:showAsAction="never" />
+
 </menu>

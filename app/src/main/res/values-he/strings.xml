@@ -4,7 +4,10 @@
 
     <string name="title_activity_main">פַּארְקוּש</string>
     <string name="action_settings">הגדרות</string>
-    <string name="action_about">על פַּארְקוּש</string>
+    <string name="action_about">פַּארְקוּש מה?</string>
+    <string name="action_share">דווח על פַּארְקוּש חדש</string>
+    <string name="title_activity_share_location">דיווח על פַּארְקוּש</string>
+    <string name="share_button_string">יש כאן פַּארְקוּש!!</string>
     <string name="aboutText">
         <![CDATA[
     <html dir=\"rtl\" lang=\"\">
@@ -22,6 +25,20 @@
 </html>
  ]]>
     </string>
-
+    <string name="shareText">
+        <![CDATA[
+    <html dir=\"rtl\" lang=\"\">
+    <body style="background-color:azure;">
+        <br/>
+         <h1 style="text-align: center;">תמיד מרגש לגלות פַּארְקוּש חדש!</h1>
+        <p>אז איך משתפים?</p>
+        <p>לחצו על הכפתור ובחרו באפליקציית המייל. אנחנו כבר נדאג לצרף לשם את הפרטים על מקומכם.</p>
+        נשמח שגם תצרפו למייל איזה תמונה או שתיים של הפַּארְקוּש כדי שבעתיד נוכל לתת תמונה קצת יותר טובה על כל מיקום.
+        נו, למה אתם מחכים?
+        <br/>
+    </body>
+    </html>
+     ]]>
+    </string>
 
 </resources>
