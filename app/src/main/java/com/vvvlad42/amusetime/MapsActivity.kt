@@ -38,6 +38,7 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 import com.google.maps.android.clustering.ClusterItem
 import com.google.maps.android.clustering.ClusterManager
 import com.vvvlad42.amusetime.data.CoordinatesService
+import com.vvvlad42.amusetime.data.LocationParcel
 import com.vvvlad42.amusetime.data.PlaceLocation
 import java.io.IOException
 import java.lang.ref.WeakReference
@@ -106,7 +107,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback , OnMarkerClickList
                 super.onLocationResult(p0)
 
 //                Toast.makeText(applicationContext, "Updated user location", Toast.LENGTH_SHORT).show()
-//                lastLocation = p0.lastLocation
+                lastLocation = p0.lastLocation
 //                val currentLatLng = LatLng(lastLocation.latitude, lastLocation.longitude)
 //                placeMarkerOnMap(currentLatLng, R.drawable.ic_your_loc_1)
 
@@ -198,8 +199,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback , OnMarkerClickList
             return true
         }
         if(item.itemId==R.id.action_share){
-            val intent = Intent(this, ShareLocation::class.java)
-            startActivity(intent)
+//            val currentLatLng:LatLng = LatLng(lastLocation.latitude, lastLocation.longitude)
+            val locationParcel = LocationParcel(lastLocation.latitude, lastLocation.longitude)
+            val shareLocationActivity = Intent(this, ShareLocation::class.java)
+            shareLocationActivity.putExtra("SharedLocation", locationParcel)
+            startActivity(shareLocationActivity)
             return true
         }
         return super.onOptionsItemSelected(item)

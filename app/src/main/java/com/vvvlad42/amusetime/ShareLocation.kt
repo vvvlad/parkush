@@ -8,9 +8,12 @@ import android.view.View
 import android.webkit.WebView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.vvvlad42.amusetime.data.LocationParcel
 import kotlinx.android.synthetic.main.activity_share_location.*
 
 class ShareLocation : AppCompatActivity() {
+
+    lateinit var sharedLocation:LocationParcel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,34 +22,37 @@ class ShareLocation : AppCompatActivity() {
         val webView = findViewById<WebView>(R.id.shareTextView)
         webView.loadDataWithBaseURL(null, htmlAsString, "text/html", "utf-8", null)
         configureToolbar()
+
+
+
         btnReportLocation.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-
-                sendEmail("vvvlad42@gmail.com", "test from app", "amazing if it works.")
-                Toast.makeText(applicationContext,"Sending....", Toast.LENGTH_LONG).show()
+                sharedLocation = intent.getParcelableExtra("SharedLocation")
+                val msg:String = "שלום, "+ System.lineSeparator()+ "יש הפַּארְקוּש כאן: "+ System.lineSeparator() + sharedLocation.lat + " : "+sharedLocation.lng
+                sendEmail("vvvlad42@gmail.com", "שיתוף הפַּארְקוּש חדש", msg)
             }
         })
+
+
+
     }
     private fun sendEmail(recipient: String, subject: String, message: String) {
         /*ACTION_SEND action to launch an email client installed on your Android device.*/
-        val mIntent = Intent(Intent.ACTION_SEND)
-        /*To send an email you need to specify mailto: as URI using setData() method
-        and data type will be to text/plain using setType() method*/
-        mIntent.data = Uri.parse("mailto:")
-        mIntent.type = "text/plain"
-        // put recipient email in intent
-        /* recipient is put as array because you may wanna send email to multiple emails
-           so enter comma(,) separated emails, it will be stored in array*/
-        mIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
-        //put the Subject in the intent
-        mIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
-        //put the message in the intent
-        mIntent.putExtra(Intent.EXTRA_TEXT, message)
+        val emailSelectorIntent = Intent(Intent.ACTION_SENDTO)
+        emailSelectorIntent.data = Uri.parse("mailto:")
 
+        val emailIntent = Intent(Intent.ACTION_SEND)
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(recipient))
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        emailIntent.putExtra(Intent.EXTRA_TEXT, message)
+        emailIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        emailIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+
+        emailIntent.selector = emailSelectorIntent
 
         try {
             //start email intent
-            startActivity(Intent.createChooser(mIntent, "Choose Email Client..."))
+            startActivity(Intent.createChooser(emailIntent, "Choose Email Client..."))
         }
         catch (e: Exception){
             //if any thing goes wrong for example no email client application or any exception
